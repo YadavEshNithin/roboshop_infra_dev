@@ -1,6 +1,6 @@
 module "frontend" {
   # source = "git::https://github.com/YadavEshNithin/terraform_aws_sg.git?ref=main"
-  source      = "../../terraform_aws_sg"
+  source = "git::https://github.com/YadavEshNithin/terraform_aws_sg.git?ref=main"
   project     = var.project
   environment = var.environment
   sg_desc     = var.sg_desc
@@ -40,7 +40,7 @@ resource "aws_security_group_rule" "vpn_frontend" {
   security_group_id = module.frontend.sg_ido
 }
 module "bastion" {
-  source = "../../terraform_aws_sg"
+  source = "git::https://github.com/YadavEshNithin/terraform_aws_sg.git?ref=main"
   project = var.project
   environment = var.environment
   sg_desc = var.sg_desc
@@ -66,7 +66,7 @@ resource "aws_security_group_rule" "bastion_catalogue" {
   security_group_id = module.catalogue.sg_ido
 }
 module "backend_alb" {
-  source      = "../../terraform_aws_sg"
+  source = "git::https://github.com/YadavEshNithin/terraform_aws_sg.git?ref=main"
   project     = var.project
   environment = var.environment
   sg_desc     = "for backend alb"
@@ -84,7 +84,7 @@ resource "aws_security_group_rule" "backend_alb" {
 }
 
 module "vpn" {
-  source      = "../../terraform_aws_sg"
+  source = "git::https://github.com/YadavEshNithin/terraform_aws_sg.git?ref=main"
   project     = var.project
   environment = var.environment
   sg_desc     = "for vpn "
@@ -151,7 +151,7 @@ resource "aws_security_group_rule" "vpn_http" {
 
 
 module "mongodb" {
-  source      = "../../terraform_aws_sg"
+  source = "git::https://github.com/YadavEshNithin/terraform_aws_sg.git?ref=main"
   project     = var.project
   environment = var.environment
   sg_desc     = "for mongodb sg"
@@ -169,7 +169,7 @@ resource "aws_security_group_rule" "mongodb_vpn_ssh" {
   security_group_id        = module.mongodb.sg_ido
 }
 module "redis" {
-  source      = "../../terraform_aws_sg"
+  source = "git::https://github.com/YadavEshNithin/terraform_aws_sg.git?ref=main"
   project     = var.project
   environment = var.environment
   sg_desc     = "for redis_sg"
@@ -187,7 +187,7 @@ resource "aws_security_group_rule" "redis_vpn_ssh" {
   security_group_id        = module.redis.sg_ido
 }
 module "mysql" {
-  source      = "../../terraform_aws_sg"
+  source = "git::https://github.com/YadavEshNithin/terraform_aws_sg.git?ref=main"
   project     = var.project
   environment = var.environment
   sg_desc     = "for mysql_vpn_ssh"
@@ -207,7 +207,7 @@ resource "aws_security_group_rule" "mysql_vpn_ssh" {
 
 
 module "rabbitmq" {
-  source      = "../../terraform_aws_sg"
+  source = "git::https://github.com/YadavEshNithin/terraform_aws_sg.git?ref=main"
   project     = var.project
   environment = var.environment
   sg_desc     = "for rabbitmq_vpn_ssh"
@@ -226,7 +226,7 @@ resource "aws_security_group_rule" "rabbitmq_vpn_ssh" {
 }
 
 module "catalogue" {
-  source      = "../../terraform_aws_sg"
+  source = "git::https://github.com/YadavEshNithin/terraform_aws_sg.git?ref=main"
   project     = var.project
   environment = var.environment
   sg_desc     = "for catalogue"
@@ -287,7 +287,7 @@ resource "aws_security_group_rule" "catalogue_cart" {
   security_group_id        = module.backend_alb.sg_ido
 }
 module "frontend_alb" {
-  source      = "../../terraform_aws_sg"
+  source = "git::https://github.com/YadavEshNithin/terraform_aws_sg.git?ref=main"
   project     = var.project
   environment = var.environment
   sg_desc     = "for frontend_alb"
@@ -305,7 +305,7 @@ resource "aws_security_group_rule" "frontend_alb_connect" {
 }
 
 module "user" {
-  source      = "../../terraform_aws_sg"
+  source = "git::https://github.com/YadavEshNithin/terraform_aws_sg.git?ref=main"
   project     = var.project
   environment = var.environment
   sg_desc     = "for user"
@@ -361,7 +361,7 @@ resource "aws_security_group_rule" "user_backend_alb" {
 
 
 module "cart" {
-  source      = "../../terraform_aws_sg"
+  source = "git::https://github.com/YadavEshNithin/terraform_aws_sg.git?ref=main"
   project     = var.project
   environment = var.environment
   sg_desc     = "for cart"
@@ -416,7 +416,7 @@ resource "aws_security_group_rule" "cart_vpn_http" {
 }
 
 module "shipping" {
-  source      = "../../terraform_aws_sg"
+  source = "git::https://github.com/YadavEshNithin/terraform_aws_sg.git?ref=main"
   project     = var.project
   environment = var.environment
   sg_desc     = "for shipping"
@@ -469,7 +469,7 @@ resource "aws_security_group_rule" "shipping_vpn_http" {
 }
 
 module "payment" {
-  source      = "../../terraform_aws_sg"
+  source = "git::https://github.com/YadavEshNithin/terraform_aws_sg.git?ref=main"
   project     = var.project
   environment = var.environment
   sg_desc     = "for payment"
