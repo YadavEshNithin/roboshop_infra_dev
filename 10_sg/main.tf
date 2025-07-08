@@ -65,13 +65,37 @@ resource "aws_security_group_rule" "bastion_catalogue" {
   source_security_group_id = module.bastion.sg_ido
   security_group_id = module.catalogue.sg_ido
 }
-resource "aws_security_group_rule" "bastion_catalogue" {
+resource "aws_security_group_rule" "bastion_monogdb" {
   type              = "ingress"
   from_port         = 22
   to_port           = 22
   protocol          = "tcp"
   source_security_group_id = module.bastion.sg_ido
   security_group_id = module.mongodb.sg_ido
+}
+resource "aws_security_group_rule" "bastion_redis" {
+  type              = "ingress"
+  from_port         = 22
+  to_port           = 22
+  protocol          = "tcp"
+  source_security_group_id = module.bastion.sg_ido
+  security_group_id = module.redis.sg_ido
+}
+resource "aws_security_group_rule" "bastion_mysql" {
+  type              = "ingress"
+  from_port         = 22
+  to_port           = 22
+  protocol          = "tcp"
+  source_security_group_id = module.bastion.sg_ido
+  security_group_id = module.mysql.sg_ido
+}
+resource "aws_security_group_rule" "bastion_rabbitmq" {
+  type              = "ingress"
+  from_port         = 22
+  to_port           = 22
+  protocol          = "tcp"
+  source_security_group_id = module.bastion.sg_ido
+  security_group_id = module.rabbitmq.sg_ido
 }
 module "backend_alb" {
   source = "git::https://github.com/YadavEshNithin/terraform_aws_sg.git?ref=main"
