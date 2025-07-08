@@ -65,6 +65,14 @@ resource "aws_security_group_rule" "bastion_catalogue" {
   source_security_group_id = module.bastion.sg_ido
   security_group_id = module.catalogue.sg_ido
 }
+resource "aws_security_group_rule" "bastion_catalogue" {
+  type              = "ingress"
+  from_port         = 22
+  to_port           = 22
+  protocol          = "tcp"
+  source_security_group_id = module.bastion.sg_ido
+  security_group_id = module.mongodb.sg_ido
+}
 module "backend_alb" {
   source = "git::https://github.com/YadavEshNithin/terraform_aws_sg.git?ref=main"
   project     = var.project
