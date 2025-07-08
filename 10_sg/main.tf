@@ -58,12 +58,13 @@ resource "aws_security_group_rule" "bastion_host" {
   security_group_id = module.bastion.sg_ido
 }
 resource "aws_security_group_rule" "bastion_catalogue" {
+  for_each = local.tg_ct
   type              = "ingress"
   from_port         = 22
   to_port           = 22
   protocol          = "tcp"
   source_security_group_id = module.bastion.sg_ido
-  security_group_id = module.catalogue.sg_ido
+  security_group_id = each.value
 }
 resource "aws_security_group_rule" "bastion_monogdb" {
   type              = "ingress"
