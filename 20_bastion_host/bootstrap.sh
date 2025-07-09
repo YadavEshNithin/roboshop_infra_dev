@@ -16,7 +16,7 @@ git clone https://github.com/YadavEshNithin/roboshop_infra_dev.git
 
 cd roboshop_infra_dev/
 
-for i in 20_bastion_host/ ;
+for i in 40_databases/ 90_components/ ;
 do  cd "$i" ; 
 terraform init ;
 terraform apply -auto-approve ; 
