@@ -18,7 +18,7 @@ cd roboshop_infra_dev/
 
 for i in 40_databases/ 90_components/ ;
 do  cd "$i" ; 
-terraform init ;
+terraform init -reconfigure;
 terraform apply -auto-approve ; 
 cd ..; 
 done
