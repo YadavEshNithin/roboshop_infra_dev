@@ -18,6 +18,7 @@ cd roboshop_infra_dev/
 
 for i in 20_bastion_host/ ;
 do  cd "$i" ; 
+terraform init ;
 terraform apply -auto-approve ; 
 cd ..; 
 done
