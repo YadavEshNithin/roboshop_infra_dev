@@ -12,6 +12,8 @@ sudo xfs_growfs /
 
 sudo xfs_growfs /home
 
+git clone https://github.com/YadavEshNithin/roboshop_infra_dev.git
+
 cd roboshop_infra_dev/
 
 for i in 40_databases/ 90_components/ ;
