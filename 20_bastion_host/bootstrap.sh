@@ -6,7 +6,7 @@ sudo yum -y install terraform
 
 sudo growpart /dev/nvme0n1 4
 sudo lvextend -L +20G /dev/RootVG/rootVol
-sudo lvextend -L +30G /dev/RootVG/homeVol 
+sudo lvextend -L +10G /dev/RootVG/homeVol 
 
 sudo xfs_growfs /
 
