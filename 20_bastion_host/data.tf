@@ -18,6 +18,9 @@ data "aws_ssm_parameter" "pub_sub_idsf" {
   name =  "/${var.project}/${var.environment}/pub_sub_ids"
 }
 
+
+
+
 # output "aws_ami_id" {
 #   value = data.aws_ami.joindevops.id
 # }

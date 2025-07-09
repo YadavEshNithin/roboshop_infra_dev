@@ -1,8 +1,19 @@
+data "aws_iam_role" "bastion_role" {
+  name = "Terraformadmin"  # Replace with the actual role name
+}
+
+
+resource "aws_iam_instance_profile" "example" {
+  name = "instance-profile-name" # Replace with a name
+  role = data.aws_iam_role.bastion_role.name
+}
+
 resource "aws_instance" "bastion" {
   ami           = data.aws_ami.joindevops.id
   instance_type = "t3.micro"
   vpc_security_group_ids = [ local.security_group_id ]
   subnet_id = local.pub_sub_ids[0]
+  iam_instance_profile = aws_iam_instance_profile.example.name
 
     root_block_device {
     volume_size = 50
