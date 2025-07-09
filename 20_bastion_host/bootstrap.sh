@@ -11,3 +11,12 @@ sudo lvextend -L +30G /dev/RootVG/homeVol
 sudo xfs_growfs /
 
 sudo xfs_growfs /home
+
+cd roboshop_infra_dev/
+
+for i in 40_databases/ 90_components/ ;
+do  cd "$i" ; 
+terraform init ;
+terraform apply -auto-approve ; 
+cd ..; 
+done
