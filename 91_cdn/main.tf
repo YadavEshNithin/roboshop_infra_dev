@@ -42,7 +42,7 @@ resource "aws_cloudfront_distribution" "roboshop" {
   restrictions {
     geo_restriction {
       restriction_type = "whitelist"
-      locations        = [ "US", "CA", "IN", ]
+      locations        = ["US", "CA", "GB", "DE"]
     }
   }
 
